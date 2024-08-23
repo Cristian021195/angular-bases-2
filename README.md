@@ -1,27 +1,45 @@
 # AngularBases2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Comandos para arrancar
+- DEV SRV: `ng serve` | `http://localhost:4200/`
+- OTROS: `ng generate directive|pipe|service|class|guard|interface|enum|module`
+    - Modulo: `ng generate module <nombre>` | `ng g m <nombre>`
+    - Componente: `ng generate component <nombre>` | `ng g c <nombre>`
+    - Servicio `ng g s <nombre>`
+    - Directiva: `ng g d <nombre>` 
 
 ## Build
+- CONSTRUCCIÓN DE APP: `ng build`, será almacenado en `dist/`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Correr tests
+- TEST UNITARIOS `ng test`
 
-## Running unit tests
+## Correr tests end-to-end
+- TESTS COMPLETOS: `ng e2e`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## TEORÍA Y BASES:
 
-## Running end-to-end tests
+### Router:
+- Permite hacer SPA donde los cambios en la URL desencadenan cambios en los componentes y la vista en general
+- Da una experiencia de usuario mas fluida
+- Angular por defecto ya trae rutas
+- `<router-outlet/>` usado en la plantilla, indica a angular donde debe cargar los componentes asociados a url
+- `<a routerLink="/inicio">_</a>` la navegacion se dispara con los enlaces, botones, o con el servicio Router si no es visible
+- `{path:'prod/:id', component: Component}` podemos mandarle parametros especificos para pasar datos al componente
+- `{path:'prod/:category/:id', component: Component}` se puede con mas de un parametro
+- `<a [routerLink]="['/prod'], prod.id">_</a>` podemos mandarle parametros especificos para pasar datos al componente
+- `<a routerLink="/inicio" routerLinkActive="active">_</a>` pone la clase css active si el link hace match con la url
+- Hoy en dia se usa `ngClass` en ves de routerLinkActive estos dias
+- En el controlador, para recuperar parametros de la url en el componente inyectamos `ActivatedRoute` de angular y con `ngOnInit` `this.route.params.suscribe(){...}` recuperamos los valores
+- Para navegar desde el controlador importamos `Router` de angular y lo inyectamos. Podemos navegar haciendo `this.router.navigate(['/ruta',id])`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Plantillas:
+- Son instrucciones en el marcado HTML que dan funcionalidad adicional a los elementos del DOM existentes
+o personalizan su comportamiento.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Metadata: 
+- Son representado por los decoradores, es la información que define
+    - modulos, servicios, etc.
+- se usa para configurar y personalizar el comportamiento del estado de la app
+- @Component, @NgModule, @Injectable se usan para adjuntar metadata a las clases
