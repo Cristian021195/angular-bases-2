@@ -33,6 +33,17 @@
 - En el controlador, para recuperar parametros de la url en el componente inyectamos `ActivatedRoute` de angular y con `ngOnInit` `this.route.params.suscribe(){...}` recuperamos los valores
 - Para navegar desde el controlador importamos `Router` de angular y lo inyectamos. Podemos navegar haciendo `this.router.navigate(['/ruta',id])`
 
+### Estructuras de control:
+- Permite manipular el flujo de ejecución en la aplicación, recuerda importar `CommonModule` en cada componente que los use
+- `*ngIf="mostrarElemento"` si es true renderiza, se pueden anidar
+- `*ngFor="let item of items"` bucle for renderiza elementos
+- `<div [ngSwitch]="evaluador"> <p *ngSwitchCase="'op1'">Opcion 1</p> ... <*ngSwitchDefault></></div>` estructura switch de multiples casos
+- `<div [ngClass]="{'cls1':condicion1,'cls2':condicion2}"></div>` permite cambiar las clases css de un elemento
+- `<div [ngStyle]="{'color':color,'font-size':tamanio}"></div>` solo admite valores para atributos css
+- `<ng-container *ngIf="condicion"></ng-container>` Es un document fragment, no agrega elementos adicionales al dom, agrupa elementos
+- Otras: `ngTemplate` ,`ngPlural` ,`ngComponentOulet`
+- 
+
 ### Plantillas:
 - Son instrucciones en el marcado HTML que dan funcionalidad adicional a los elementos del DOM existentes
 o personalizan su comportamiento.

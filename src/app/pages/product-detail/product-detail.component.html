@@ -1,2 +1,9 @@
-<h1>{{product}}</h1>
-<div style="width: 1rem; height: 1rem;" class="{{color}}">&nbsp;</div>
+<ng-container>
+    <h1>{{product?.name}}</h1>
+    <h2 [ngStyle]="{'color': color}">Precio: {{product?.price | currency}}</h2>
+    <h3>Description: {{product?.description}}</h3>
+    <div style="width: 1rem; height: 1rem;">&nbsp;</div>
+</ng-container>
+<ng-container *ngIf="loading">
+    <i>Cargando...</i>
+</ng-container>
